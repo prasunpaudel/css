@@ -1,0 +1,19 @@
+body{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+#class{
+display: inline-flex;
+background-color: aqua;
+}
+.container{
+    display: inline-flex;
+    margin: 100px;
+    padding: 10px;
+    background-color: aliceblue;
+    flex-direction:column ;
+}

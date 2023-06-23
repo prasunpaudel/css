@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Libre Caslon Display', serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background-color: #fff;
+    width: 270px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 20px #b11;
+}
+image{
+    width: 20%;
+    height: 45%;
+}
+.color{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    box-shadow: 1px 1px 10px #ccc;
+    width: 90%;
+
+}
+.color .red, .white, .pitch_black, .pink, .blue, .black {
+    height: 50px;
+    border-radius: 10px;
+}
+.color .red:hover, .white:hover, .pitch_black:hover, .pink:hover, .blue:hover, .black:hover {
+    /* padding: 5px; */
+    background-color: #ccc;
+
+}
+.color img{
+    width:50px;
+
+}
+img{
+    width:100%;
+}
+
+.title{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+.price{
+    font-size: 18px;
+}
+.catagory{
+    text-transform: uppercase;
+    font-size: 16px;
+    color:gray;
+}
+.discription{
+    font-size: 18px;
+}
+.discription  a{
+    color: #3d3b3b;
+}
+.size{
+    display: flex;
+}
+.size div {
+    padding: 5px;
+}
+.size div:hover {
+    padding: 5px;
+    margin: 5px;
+}
+.cart a{
+    text-decoration: none;
+    border: 1px solid rgb(12, 139, 105);
+    color: #fff;
+    background-color: rgb(12, 139, 105);
+    padding: 3px 5px;
+}
+a:hover{
+    background-color: #ccc;
+}

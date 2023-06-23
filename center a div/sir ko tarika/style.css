@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #fff;
+  }
+  .container {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .child {
+    background-color: #fff;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    line-height: 200px;
+    /* padding: 100px; */
+    box-shadow: 0px 0px 20px #ccc;
+    border-radius: 5px;
+  }

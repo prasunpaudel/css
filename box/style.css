@@ -1,0 +1,22 @@
+body{
+    background-color: #fff;
+}
+
+div{
+    background-color: #fff;
+    margin: 50px;
+    padding: 20px;
+    /* padding: 10px 20px 30px 40px; */
+    /*          top right bottom left*/
+    /* padding: 20px 10px ; */
+    /* height: 200px;
+    width: 300px; */
+    /* border: 5px solid black; */
+    border: 2px dashed #ccc;
+    border-radius: 50px;
+    box-shadow: 5px 5px 50px black;
+    line-height: 30px;
+    letter-spacing: 2px;
+    /* word-spacing: 1opx; */
+    box-sizing: border-box;
+}

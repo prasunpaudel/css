@@ -1,0 +1,19 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+  .parent {
+    background-color: rgb(231, 231, 138);
+    height: 100vh;
+    position: relative;
+  }
+  .child {
+    position: sticky;
+    bottom: 0px;
+    right: 0px;
+    border: 2px solid black;
+  }
+  

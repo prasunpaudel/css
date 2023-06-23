@@ -1,0 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+.card{
+    background-color: #fff;
+    height: 350px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 12px 10px 25px #ccc;
+}
+.login{
+    color: rgb(170, 37, 170);
+    font-size: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+input{
+    border: none;
+    border-bottom: 2px solid gray;
+    padding: 10px 0;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 80%;
+}
+input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+}
+ 
+.go{
+
+    margin: 50px 50px 0 50px;
+    background: #ad60d7;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 25px;
+    color: #fff;
+
+}
+.go:hover{
+    background: #ccc;
+}
+.forgot{
+    color: #ccc;
+    text-align: center;
+    margin-top: 10px;
+}

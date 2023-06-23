@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+.card{
+    background-color: #e53cda;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 12px 10px 25px #ccc;
+}
+.login{
+    color: #fff;
+    font-size: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+input{
+    border: none;
+    background: #e53cda;
+    border-bottom: 2px solid rgb(36, 27, 27);
+    padding: 10px 0;
+    margin-left: 25px;
+    margin-top: 25px;
+    color: #fff;
+    width: 80%;
+    transition: 1s;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+}
+ 
+.go{
+
+    margin: 50px 50px 0 50px;
+    background: #fff;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 25px;
+    color: #a31099;
+    font-weight: bold;
+
+}
+.go:hover{
+    background: #ccc;
+}
+.forgot{
+    color: #ccc;
+    text-align: center;
+    margin-top: 10px;
+}
