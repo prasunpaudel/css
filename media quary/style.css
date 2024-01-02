@@ -1,0 +1,39 @@
+/* styles.css */
+
+/* .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  } */
+  
+  .box {
+    float: left;
+    width: 97%;
+    height: 500px;
+    margin: auto;
+    margin: 10px 1%;
+    border-radius: 5px; 
+  }
+  
+  .box1 {
+    background-color: red;
+  }
+  
+  .box2 {
+    background-color: rgb(93, 198, 83);
+  }
+  
+  .box3 {
+    background-color: rgb(47, 130, 182);
+  }
+  @media screen and (min-width: 768px) {
+    .box {
+      width: 47%;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .box {
+      width: 31%;
+    }
+    
+  }

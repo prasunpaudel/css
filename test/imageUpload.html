@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #upload-box {
+      border: 2px dashed #ccc;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    #close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      color: #ff0000; /* Set color to red */
+      font-size: 16px;
+      display: none; /* Initially hide close button */
+    }
+
+    #uploaded-image {
+      max-width: 100%;
+      max-height: 300px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    #progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #eee;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: none; /* Initially hide progress bar */
+    }
+
+    #progress-bar span {
+      display: block;
+      height: 100%;
+      background-color: #4caf50;
+      transition: width 0.3s ease-in-out;
+    }
+
+    #progress-text {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+      display: none; /* Initially hide progress text */
+    }
+  </style>
+</head>
+<body>
+  <div id="upload-box" ondragenter="handleDragEnter(event)" ondragleave="handleDragLeave(event)" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+    <input type="file" id="file-input" style="display: none;" accept="image/*">
+    <label for="file-input" id="file-label">
+      <strong>Drag &amp; Drop</strong> or <strong>Click</strong> to select an image
+    </label>
+    <span id="close-button" onclick="cancelUpload()">&#10006;</span>
+    <div id="uploaded-image-container">
+      <img id="uploaded-image" alt="Uploaded Image">
+      <div id="image-info"></div>
+    </div>
+    <div id="progress-bar">
+      <span id="progress-bar-fill"></span>
+    </div>
+    <div id="progress-text"></div>
+  </div>
+
+  <script>
+    const uploadBox = document.getElementById('upload-box');
+    const fileInput = document.getElementById('file-input');
+    const closeButton = document.getElementById('close-button');
+    const uploadedImage = document.getElementById('uploaded-image');
+    const imageInfo = document.getElementById('image-info');
+    const progressBar = document.getElementById('progress-bar');
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const progressText = document.getElementById('progress-text');
+
+    fileInput.addEventListener('change', handleFileSelect);
+
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      handleFile(file);
+    }
+
+    function handleFile(file) {
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          uploadedImage.src = e.target.result;
+          uploadedImage.style.display = 'block';
+          imageInfo.innerHTML = `<strong>Name:</strong> ${file.name}<br><strong>Size:</strong> ${formatSize(file.size)}`;
+
+          // Display close button, progress bar, and text after image is selected
+          closeButton.style.display = 'inline';
+          progressBar.style.display = 'block';
+          progressText.style.display = 'block';
+
+          // Simulate an upload with a delay
+          simulateUpload(file);
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        alert('Please select a valid image file.');
+      }
+    }
+
+    function formatSize(bytes) {
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+      if (bytes === 0) return '0 Byte';
+      const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+      return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    }
+
+    function simulateUpload(file) {
+      const totalSize = file.size;
+      const chunkSize = 1024; // Simulate uploading in 1KB chunks
+      let uploadedSize = 0;
+
+      function uploadChunk() {
+        uploadedSize += chunkSize;
+
+        const progressPercentage = Math.min((uploadedSize / totalSize) * 100, 100);
+        progressBarFill.style.width = `${progressPercentage}%`;
+
+        if (progressPercentage > 0) {
+          progressText.textContent = `${Math.round(progressPercentage)}%`;
+        } else {
+          progressText.textContent = '';
+        }
+
+        if (uploadedSize < totalSize) {
+          setTimeout(uploadChunk, 100); // Simulate delay between chunks
+        }
+      }
+
+      // Start uploading chunks
+      uploadChunk();
+    }
+
+    function cancelUpload() {
+      // Reset UI and file input
+      fileInput.value = '';
+      uploadedImage.src = '';
+      uploadedImage.style.display = 'none';
+      imageInfo.innerHTML = '';
+      closeButton.style.display = 'none';
+      progressBar.style.display = 'none';
+      progressText.style.display = 'none';
+    }
+
+    function handleDragEnter(event) {
+      event.preventDefault();
+      uploadBox.classList.add('drag-over');
+    }
+
+    function handleDragLeave(event) {
+      event.preventDefault();
+      uploadBox.classList.remove('drag-over');
+    }
+
+    function handleDragOver(event) {
+      event.preventDefault();
+      uploadBox.classList.add('drag-over');
+    }
+
+    function handleDrop(event) {
+      event.preventDefault();
+      uploadBox.classList.remove('drag-over');
+      const file = event.dataTransfer.files[0];
+      handleFile(file);
+    }
+  </script>
+</body>
+</html>
